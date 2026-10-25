@@ -1,0 +1,203 @@
+
+===== Tur 16 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  52 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  42 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  40 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x9 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037b752
+--- 0x4037b752: esp_cpu_wait_for_intr at C:/esp/v6.1/esp-idf/components/esp_hw_support/cpu.c:64
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xde4
+--- 0x403c8700: _stext at ??:?
+load:0x403cb700,len:0x2f58
+entry 0x403c8904
+--- 0x403c8904: call_start_cpu0 at C:/esp/v6.1/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (24) boot: ESP-IDF v6.1 2nd stage bootloader
+I (24) boot: compile time Oct 25 2026 21:35:25
+I (25) boot: Multicore bootloader
+I (25) boot: chip revision: v0.2
+I (27) boot: efuse block revision: v1.4
+I (31) boot.esp32s3: Boot SPI Speed : 80MHz
+I (35) boot.esp32s3: SPI Mode       : DIO
+I (39) boot.esp32s3: SPI Flash Size : 2MB
+I (42) boot: Enabling RNG early entropy source...
+I (47) boot: Partition Table:
+I (49) boot: ## Label            Usage          Type ST Offset   Length
+I (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (69) boot:  2 factory          factory app      00 00 00010000 00100000
+I (75) boot: End of partition table
+I (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0c018h ( 49176) map
+I (95) esp_image: segment 1: paddr=0001c040 vaddr=3fc93100 size=03368h ( 13160) load
+I (98) esp_image: segment 2: paddr=0001f3b0 vaddr=40374000 size=00c68h (  3176) load
+I (102) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=166cch ( 91852) map
+I (125) esp_image: segment 4: paddr=000366f4 vaddr=40374c68 size=0e400h ( 58368) load
+I (139) esp_image: segment 5: paddr=00044afc vaddr=50000000 size=00024h (    36) load
+I (146) boot: Loaded app from partition at offset 0x10000
+I (146) boot: Disabling RNG early entropy source...
+I (157) cpu_start: Multicore app
+I (165) cpu_start: GPIO 44 and 43 are used as console UART I/O pins
+I (166) cpu_start: Pro cpu start user code
+I (166) cpu_start: cpu freq: 240000000 Hz
+I (167) app_init: Application information:
+I (171) app_init: Project name:     lab3_spi
+I (175) app_init: App version:      1
+I (179) app_init: Compile time:     Oct 25 2026 21:34:41
+I (184) app_init: ELF file SHA256:  68281a3ba...
+I (188) app_init: ESP-IDF:          v6.1
+I (192) efuse_init: Min chip rev:     v0.0
+I (195) efuse_init: Max chip rev:     v0.99 
+I (199) efuse_init: Chip rev:         v0.2
+I (203) heap_init: Initializing. RAM available for dynamic allocation:
+I (210) heap_init: At 3FC96F00 len 00052810 (330 KiB): RAM
+I (215) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (220) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (225) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (231) spi_flash: detected chip: boya
+I (234) spi_flash: flash io: dio
+W (237) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (249) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (255) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (262) main_task: Started on CPU0
+I (262) main_task: Calling app_main()
+I (272) lab3_spi: SPI2: MOSI=GPIO11 MISO=GPIO13 SCLK=GPIO12 CS=GPIO10
+I (272) lab3_spi: SCLK izleme: GPIO14 (GPIO12'ye bağlı değilse 'SCLK boşta' değeri anlamsızdır)
+
+===== Tur 1 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  85 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  44 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  41 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  37 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+
+===== Tur 2 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  45 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  43 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  41 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+
+===== Tur 3 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  70 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  44 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  40 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  38 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+
+===== Tur 4 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  46 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  43 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  40 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+
+===== Tur 5 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  70 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  44 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  41 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  38 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+
+===== Tur 6 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  46 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  43 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  41 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+
+===== Tur 7 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  70 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  72 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  44 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  41 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  39 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+
+===== Tur 8 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  73 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  74 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  45 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  42 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  41 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri
+
+===== Tur 9 =====
+-- Mod karşılaştırması, 1 MHz --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  70 us | SCLK boşta = 0 (beklenen 0)
+mod 1 (CPOL=0 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 0 (beklenen 0)
+mod 2 (CPOL=1 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 1 (beklenen 1)
+mod 3 (CPOL=1 CPHA=1)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us | SCLK boşta = 1 (beklenen 1)
+   4/4 mod eşleşti
+-- Hız denemesi, mod 0 --
+mod 0 (CPOL=0 CPHA=0)   1.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  71 us
+mod 0 (CPOL=0 CPHA=0)   5.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  44 us
+mod 0 (CPOL=0 CPHA=0)  10.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  40 us
+mod 0 (CPOL=0 CPHA=0)  20.0 MHz | tx: A5 3C 0F F0 | rx: A5 3C 0F F0 | EŞLEŞTİ   |  39 us
+Beklenen süre: 32 bit / hız (1 MHz'te 32 us) + sürücünün sabit gideri

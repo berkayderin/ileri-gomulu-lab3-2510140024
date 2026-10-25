@@ -1,0 +1,240 @@
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x96\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xE5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\x88.\xD9"
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xb (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40378f0a
+--- 0x40378f0a: esp_cpu_wait_for_intr at C:/esp/v6.1/esp-idf/components/esp_hw_support/cpu.c:64
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xde4
+--- 0x403c8700: _stext at ??:?
+load:0x403cb700,len:0x2f58
+entry 0x403c8904
+--- 0x403c8904: call_start_cpu0 at C:/esp/v6.1/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (24) boot: ESP-IDF v6.1 2nd stage bootloader
+I (24) boot: compile time Oct 25 2026 21:21:52
+I (25) boot: Multicore bootloader
+I (25) boot: chip revision: v0.2
+I (27) boot: efuse block revision: v1.4
+I (31) boot.esp32s3: Boot SPI Speed : 80MHz
+I (35) boot.esp32s3: SPI Mode       : DIO
+I (39) boot.esp32s3: SPI Flash Size : 2MB
+I (42) boot: Enabling RNG early entropy source...
+I (47) boot: Partition Table:
+I (49) boot: ## Label            Usage          Type ST Offset   Length
+I (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (69) boot:  2 factory          factory app      00 00 00010000 00100000
+I (75) boot: End of partition table
+I (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0b098h ( 45208) map
+I (94) esp_image: segment 1: paddr=0001b0c0 vaddr=3fc90f00 size=031d8h ( 12760) load
+I (97) esp_image: segment 2: paddr=0001e2a0 vaddr=40374000 size=01d78h (  7544) load
+I (103) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=15820h ( 88096) map
+I (124) esp_image: segment 4: paddr=00035848 vaddr=40375d78 size=0b0ech ( 45292) load
+I (135) esp_image: segment 5: paddr=0004093c vaddr=50000000 size=00024h (    36) load
+I (141) boot: Loaded app from partition at offset 0x10000
+I (141) boot: Disabling RNG early entropy source...
+I (153) cpu_start: Multicore app
+I (161) cpu_start: GPIO 44 and 43 are used as console UART I/O pins
+I (162) cpu_start: Pro cpu start user code
+I (162) cpu_start: cpu freq: 240000000 Hz
+I (164) app_init: Application information:
+I (168) app_init: Project name:     lab3_uart
+I (172) app_init: App version:      1
+I (175) app_init: Compile time:     Oct 25 2026 21:21:04
+I (180) app_init: ELF file SHA256:  6a11dd7a9...
+I (184) app_init: ESP-IDF:          v6.1
+I (188) efuse_init: Min chip rev:     v0.0
+I (192) efuse_init: Max chip rev:     v0.99 
+I (196) efuse_init: Chip rev:         v0.2
+I (200) heap_init: Initializing. RAM available for dynamic allocation:
+I (206) heap_init: At 3FC96330 len 000533E0 (332 KiB): RAM
+I (211) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (216) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (221) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (228) spi_flash: detected chip: boya
+I (230) spi_flash: flash io: dio
+W (233) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (246) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (252) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (259) main_task: Started on CPU0
+I (259) main_task: Calling app_main()
+I (269) lab3_uart: UART1: TX=GPIO17 RX=GPIO18, 115200 baud 8N1
+I (269) lab3_uart: UART2: RX=GPIO16 (yanlış baud denemesi için)
+I (279) lab3_uart: 1 bit = 8.68 us, 8N1 ile 1 bayt = 10 bit = 86.81 us
+
+===== Tur 1 | gönderilen 32 bayt: "Lab3 UART #1: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2879 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #1: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #1: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xC5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\x88.\xD9"
+
+Not: UART2'ye hiç bayt gelmiyorsa GPIO16 aynı satıra bağlı değildir.
+
+===== Tur 2 | gönderilen 32 bayt: "Lab3 UART #2: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2813 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #2: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #2: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x92\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xC5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\x88.\xD9"
+
+===== Tur 3 | gönderilen 32 bayt: "Lab3 UART #3: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2816 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #3: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #3: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x93\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xC5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\xAB\x0C\xD9"
+
+===== Tur 4 | gönderilen 32 bayt: "Lab3 UART #4: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2818 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #4: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #4: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x94\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xE5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\xAB\x17\xFE"
+
+===== Tur 5 | gönderilen 32 bayt: "Lab3 UART #5: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2817 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #5: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #5: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x95\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xE5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\x88.\xD9"
+
+===== Tur 6 | gönderilen 32 bayt: "Lab3 UART #6: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2816 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #6: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #6: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x96\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xE5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\xAB\x17\xFE"
+
+===== Tur 7 | gönderilen 32 bayt: "Lab3 UART #7: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2819 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #7: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #7: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x97\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xE5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\x80\x90\xE4"
+
+===== Tur 8 | gönderilen 32 bayt: "Lab3 UART #8: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2816 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #8: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #8: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x98\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xC5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\x88.\xD9"
+
+===== Tur 9 | gönderilen 32 bayt: "Lab3 UART #9: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 32 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2817 us, beklenen 2778 us (32 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  32 bayt, farklı   0 -> "Lab3 UART #9: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  32 bayt, farklı   0 -> "Lab3 UART #9: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  25 bayt, farklı  32 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x99\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  32 -> "\x9D\xC5|L\x0F\xC5\x8F\xBC\x8E\x84\x8C\^\xA5\xD9\x08"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  32 -> "\xAB\x0C\xD9"
+
+===== Tur 10 | gönderilen 33 bayt: "Lab3 UART #10: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2904 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #10: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #10: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91\xE2\x90\xA3F\xD1\xB1\A\xA5\x1A\x95\xC2\x9D\xDA:\x8A"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCC8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\xABC\x89"
+
+===== Tur 11 | gönderilen 33 bayt: "Lab3 UART #11: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2904 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #11: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #11: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91,\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCC8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\x88E\x89"
+
+===== Tur 12 | gönderilen 33 bayt: "Lab3 UART #12: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2903 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #12: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #12: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91\x96\x82\xAD)\x1E\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCD8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\xAB\x08\x89"
+
+===== Tur 13 | gönderilen 33 bayt: "Lab3 UART #13: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2905 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #13: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #13: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91\x96\x82\xAD)\x1E\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCD8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\x88\n\x89"
+
+===== Tur 14 | gönderilen 33 bayt: "Lab3 UART #14: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2903 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #14: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #14: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91C\x82\xAD)\x1E\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCC8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\xABC\x89"
+
+===== Tur 15 | gönderilen 33 bayt: "Lab3 UART #15: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2903 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #15: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #15: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91-\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCC8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\xABC\x89"
+
+===== Tur 16 | gönderilen 33 bayt: "Lab3 UART #16: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2904 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #16: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #16: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91C\x82\xAD)\x1E\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCD8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\xAB\xA6\xFA"
+
+===== Tur 17 | gönderilen 33 bayt: "Lab3 UART #17: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2903 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #17: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #17: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91C\x82\xAD)\x1E\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCD8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\xAB\xA6\xFA"
+
+===== Tur 18 | gönderilen 33 bayt: "Lab3 UART #18: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2903 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #18: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #18: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91\xE2\x90\xA3F\xD1\xB1\A\xA5\x1A\x95\xC2\x9D\xDA:\x8A"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCE8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\x88E\x89"
+
+===== Tur 19 | gönderilen 33 bayt: "Lab3 UART #19: Merhaba ESP32-S3\r\n"
+UART1 geri döngü (115200 baud): 33 bayt alındı, farklı bayt: 0 -> EŞLEŞTİ
+  gönderim süresi: ölçülen 2905 us, beklenen 2865 us (33 bayt x 10 bit)
+UART2 alıcı 115200 baud (fark   +0.0%):  33 bayt, farklı   0 -> "Lab3 UART #19: Merhaba ESP32-S3\r\n"
+UART2 alıcı 112000 baud (fark   -2.8%):  33 bayt, farklı   0 -> "Lab3 UART #19: Merhaba ESP32-S3\r\n"
+UART2 alıcı 105000 baud (fark   -8.9%):  26 bayt, farklı  33 -> "\xAC(\xDC\x82\xA5 \x1A\x05\x8A\x91.\x17:\xC5\xB2\x1B\xC9\xB1\x1A\xAD\xA0\x96\xBA\xA3V\xA8"
+UART2 alıcı  57600 baud (fark  -50.0%):  16 bayt, farklı  33 -> "\x9D\xC5|L\x0F\xC5\xCE8R\x18\x84P\xDC\xBA\xE1\x02"
+UART2 alıcı   9600 baud (fark  -91.7%):   3 bayt, farklı  33 -> "\x88E\x89"

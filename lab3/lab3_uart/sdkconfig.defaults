@@ -1,0 +1,2 @@
+# İşlemci saatini 240 MHz yap (Lab 2 ile aynı)
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
